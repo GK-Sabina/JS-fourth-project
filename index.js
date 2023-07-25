@@ -96,4 +96,33 @@
 //    return sum;
 // }
 
+/**
+ * @param {number} number
+ * @returns
+ */ 
 
+function getFactorialNumber(number){
+    if(typeof number !== 'number'){
+        throw new TypeError('type incorrect'); 
+    }
+    if(number < 0){
+        throw new RangeError('number must be positive');
+    }
+    if (number === 0){
+        return 1;
+    }
+    return number * getFactorialNumber(number - 1);
+ }
+
+ try{
+            console.log(getFactorialNumber(5));
+        } catch (error) {
+            console.log('error -', error)
+            if(error instanceof RangeError){
+                alert('check number!')
+            } else if(error instanceof TypeError){
+                alert('check type!')
+            } else{
+                alert('error')
+            }
+        }
